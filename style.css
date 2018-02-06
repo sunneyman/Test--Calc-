@@ -1,0 +1,24 @@
+body {
+    font-size: 18px;
+    
+
+}
+
+h1 {
+    color: DarkGreen;
+    font-size: 34px;
+    /*font-family: verdana;*/
+}
+
+h4 {
+    color: DarkRed;
+    font-size: 26px;
+    margin-top: 40px;
+    /*font-family: verdana;*/
+    }
+
+p {
+    /*font-family: verdana;*/
+    /*color: Black;*/
+    font-size: 19px;
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Animals calculator - 3rd version</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <script src="functions.js"></script>
+</head>
+<body>
+
+<!-- Entering the amount of each animal -->
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+      <h3>Step 2: Please, enter the amount of each animal</h3>      
+      <form id="animalsForm">
+      <script>
+      var text, animals2;
+
+//Retrieving data:
+      text = localStorage.getItem("testJSON");
+      animals2 = JSON.parse(text);
+      animals2 = arrayChecker(animals2);
+
+      for (i = 0; i < animals2.length; i++) {
+
+          var text1 = '<div class="container">Number of ' + animals2[i] + ':<br><input type="number" min="0" required name=' + animals2[i] + ' size="10" id=' + animals2[i] + '></div>';
+          document.write(text1);}
+      </script>
+    </form>
+  </div>
+
+<!-- Calculating the whole amount -->    
+    <div class="col-sm-6">
+      <h3>Step 3: Here we can calculate the total amount of animals</h3>        
+      <p><button onclick="amountCalculator()">Press to calculate the total amount</button></p>
+      <p><button onclick="formCleaning()">Press to clean the form</button></p>
+      <p><form action="index.html">
+      <input type="submit" value="Go back to the Home page">
+          </form></p>
+
+      <h4>The total amount is:  <span id="totalAm"></span></h4>
+    <script>  
+      function amountCalculator() {
+      var x = document.getElementById("animalsForm");
+      var animalsAmount = 0;
+      var text2 = "";
+      var i;
+      for (i = 0; i < x.length ;i++) 
+      {animalsAmount += Number (x.elements[i].value);}
+      text2 += animalsAmount + ' animals.';
+      document.getElementById("totalAm").innerHTML = text2;
+      }
+    </script>
+
+<!-- Cleaning the table -->
+
+    <script type="text/javascript">
+    function formCleaning() 
+    {
+    var x = document.getElementById("animalsForm");
+    var i;
+    for (i = 0; i < animals2.length; i++)
+        {x.elements[i].value = undefined;}
+        document.getElementById("totalAm").innerHTML = '';
+    }
+    </script>
+  </div>
+</div>
+</div>
+</body>
+</html>

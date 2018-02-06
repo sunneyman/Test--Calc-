@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Animals calculator - 4th version</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="creatingforms.js"></script>
+  <script src="functions.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="jumbotron text-center" style="height: 200px">
+  <h1 style="; margin-top: 10px">Animals calculator</h1>
+  <p style="text-align: center;">This program calculates the number of animals in a Zoo.</p> 
+</div>
+
+<!-- Creating animals database -->
+<div class="container">
+  <script type="text/javascript">animals = []</script>
+  <div class="row">
+    <div class="col-sm-3"><img src="image1.jpg" width="100%">
+    </div>  
+
+    <div class="col-sm-9">
+      <h3>Step 1: Entering the names of animals</h3>
+      <p>Please enter the animal name and then press "Add".</p>
+      <p><button onclick="addAnimalName()">Add</button>
+      <button onclick="cleanAnimalTitleForm()">Clean entrance field</button>
+      <button onclick="cleanAnimalTitles(animals)">Undo</button></p>
+      <p><form action="calculations.html">
+          <input id="animalsInput" type="text" required>
+          <input type="submit" value="Create calculation form" onclick="dataTransfer(animals)">
+        </form></p>          
+      <p id="response"></p>
+      <p id="checker"></p>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+      function dataTransfer(argument)
+          { var myObj, myJSON;
+            myJSON = JSON.stringify(argument);
+            localStorage.setItem("testJSON", myJSON);
+          }
+</script>
+
+</body>
+</html>
